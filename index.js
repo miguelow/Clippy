@@ -8,6 +8,20 @@ const tabBtn = document.getElementById("tab-btn")
 const errorMsg = document.getElementById("error-msg-1")
 const errorMsg2 = document.getElementById("error-msg-2")
 
+function render(leads) {
+    let listItems = ""
+    for (let i = 0; i < leads.length; i++) {
+        listItems += `
+            <li>
+                <a class='links' target='_blank' href='${leads[i]}'>
+                    ${leads[i]}
+                </a>
+            </li>
+        `
+    }
+    ulEl.innerHTML = listItems
+}
+
 if (leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
     render(myLeads)
@@ -28,20 +42,6 @@ tabBtn.addEventListener("click", function(){
     })
 })
 
-function render(leads) {
-    let listItems = ""
-    for (let i = 0; i < leads.length; i++) {
-        listItems += `
-            <li>
-                <a class='links' target='_blank' href='${leads[i]}'>
-                    ${leads[i]}
-                </a>
-            </li>
-        `
-    }
-    ulEl.innerHTML = listItems
-}
-
 deleteBtn.addEventListener("click", function() {
     localStorage.clear()
     myLeads = []
@@ -54,6 +54,12 @@ inputBtn.addEventListener("click", function() {
         inputEl.value = ""
         localStorage.setItem("myLeads", JSON.stringify(myLeads) )
         render(myLeads)
+    }else if (inputEl.value.length && myLeads.includes(inputEl.value)) {
+        errorMsg2.style.display = "block"
+            setTimeout(() => {
+            errorMsg2.style.display = "none"
+        }, 2000)
+        inputEl.value = ""
     }else{
         errorMsg.style.display = "block"
         setTimeout(() => {

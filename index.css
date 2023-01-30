@@ -13,11 +13,14 @@ body {
 }
 
 input {
-    width: 100%;
+    width: 60%;
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #5f9341;
     margin-bottom: 4px;
+}
+.container-input{
+    display: flex;
 }
 
 button {
@@ -26,6 +29,12 @@ button {
     padding: 10px 20px;
     border: 1px solid #5f9341;
     font-weight: bold;
+}
+
+#input-btn {
+    width: 40%;
+    padding: 10px;
+    margin-bottom: 4px;
 }
 
 #delete-btn {

@@ -5,6 +5,7 @@ const ulEl = document.getElementById("ul-el")
 const deleteBtn = document.getElementById("delete-btn")
 const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
 const tabBtn = document.getElementById("tab-btn")
+const errorMsg = document.getElementById("error-msg")
 
 if (leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
@@ -40,8 +41,13 @@ deleteBtn.addEventListener("dblclick", function() {
 })
 
 inputBtn.addEventListener("click", function() {
-    myLeads.push(inputEl.value)
-    inputEl.value = ""
-    localStorage.setItem("myLeads", JSON.stringify(myLeads) )
-    render(myLeads)
+    if(inputEl.value.length){
+        myLeads.push(inputEl.value)
+        inputEl.value = ""
+        localStorage.setItem("myLeads", JSON.stringify(myLeads) )
+        render(myLeads)
+    }else{
+        errorMsg.classList.add('show');
+        setTimeout(function(){ errorMsg.classList.add('not-show'); }, 2000);
+    }
 })

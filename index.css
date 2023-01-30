@@ -16,7 +16,6 @@
   }
   
   body {
-    height: 100vh;
     margin: 0 auto;
     display: grid;
     place-items: center;
@@ -116,16 +115,19 @@
         margin-top: 5px;
     }
 
-
-    .error-message{
+    .error{
         display: none;
+        position: absolute;
+        background-color: red;
+        right: 14;
+        top: 50;
+        padding: 6px;
+        border-radius: 5px 5px 0px 0px;
+        background-color: #e65353;
+        box-shadow:  #f41c1c 4px 4px;
+        color: var(--color-primary);
+        font-size: 1rem;
+        font-family: var(--font-family);
+        text-transform: lowercase;
+        text-shadow: var(--shadow) 2px 2px;
     }
-
-    .show{
-        display: block;
-    }
-
-    .not-show{
-        display: none;
-    }
-

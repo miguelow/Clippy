@@ -19,6 +19,11 @@ tabBtn.addEventListener("click", function(){
             myLeads.push(tabs[0].url)
             localStorage.setItem("myLeads", JSON.stringify(myLeads) )
             render(myLeads)
+        }else{
+            errorMsg2.style.display = "block"
+            setTimeout(() => {
+            errorMsg2.style.display = "none"
+        }, 2000);
         }
     })
 })
@@ -49,6 +54,11 @@ inputBtn.addEventListener("click", function() {
         inputEl.value = ""
         localStorage.setItem("myLeads", JSON.stringify(myLeads) )
         render(myLeads)
+    }else{
+        errorMsg.style.display = "block"
+        setTimeout(() => {
+            errorMsg.style.display = "none"
+        }, 2000);
     }
 })
 

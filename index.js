@@ -44,13 +44,17 @@ deleteBtn.addEventListener("click", function() {
 })
 
 inputBtn.addEventListener("click", function() {
-    if(inputEl.value.length){
+    if(inputEl.value.length && !myLeads.includes(inputEl.value)){
         myLeads.push(inputEl.value)
         inputEl.value = ""
         localStorage.setItem("myLeads", JSON.stringify(myLeads) )
         render(myLeads)
-    }else{
-        errorMsg.classList.add('show');
-        setTimeout(function(){ errorMsg.classList.add('not-show'); }, 2000);
     }
 })
+
+inputEl.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      inputBtn.click();
+    }
+  });

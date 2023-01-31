@@ -17,6 +17,7 @@ function render(leads) {
                     ${leads[i]}
                 </a>
             </li>
+            <hr>
         `
     }
     ulEl.innerHTML = listItems
@@ -34,11 +35,8 @@ tabBtn.addEventListener("click", function(){
             localStorage.setItem("myLeads", JSON.stringify(myLeads) )
             render(myLeads)
         }else{
-            errorMsg2.style.display = "block"
-            setTimeout(() => {
-            errorMsg2.style.display = "none"
-        }, 2000);
-        }
+            toggleVisibility(errorMsg2)
+            }
     })
 })
 
@@ -55,16 +53,9 @@ inputBtn.addEventListener("click", function() {
         localStorage.setItem("myLeads", JSON.stringify(myLeads) )
         render(myLeads)
     }else if (inputEl.value.length && myLeads.includes(inputEl.value)) {
-        errorMsg2.style.display = "block"
-            setTimeout(() => {
-            errorMsg2.style.display = "none"
-        }, 2000)
-        inputEl.value = ""
+        toggleVisibility(errorMsg2)
     }else{
-        errorMsg.style.display = "block"
-        setTimeout(() => {
-            errorMsg.style.display = "none"
-        }, 2000);
+        toggleVisibility(errorMsg)
     }
 })
 
@@ -73,4 +64,12 @@ inputEl.addEventListener("keypress", function(event) {
       event.preventDefault();
       inputBtn.click();
     }
-  });
+});
+
+function toggleVisibility(error) {
+    error.style.display = "block"
+    setTimeout(() => {
+        error.style.display = "none"
+    }, 2000)
+    inputEl.value = ""
+}

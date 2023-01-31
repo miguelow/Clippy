@@ -22,7 +22,9 @@ place-items: center;
 padding: 20px;
 max-width: 700px;
 min-width: 400px;
+max-width: 500px;
 }
+
 input {
 width: 100%;
 box-shadow: var(--shadow) 4px 4px;
@@ -95,14 +97,11 @@ text-transform: lowercase;
 text-shadow: var(--shadow) 2px 2px;
 }
 
-.container {
+.container-body {
 padding: 20px;
 border-radius: 5px 5px 0px 0px;
 background-color: #e2e2e2;
 box-shadow: var(--shadow-darker) 4px 4px;
-}
-.container-input{
-display: flex;
 }
 
 ul {
@@ -120,7 +119,7 @@ display: none;
 position: absolute;
 background-color: red;
 right: 14;
-top: 50;
+top: 85%;
 padding: 6px;
 border-radius: 5px 5px 0px 0px;
 background-color: #e65353;

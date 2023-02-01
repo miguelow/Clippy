@@ -1,5 +1,7 @@
 Simple chrome extension that stores text in local storage 
 
+![preview of the extension](preview.PNG)
+
 Quick start:
 
 ```
